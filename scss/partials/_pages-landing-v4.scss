@@ -102,6 +102,7 @@ TABLE OF CONTENTS
     font-family: 'Nexa Bold', sans-serif;
     &.is-bigger {
         font-size: 5rem;
+        line-height: 50px;
     }
     &.is-medium {
         font-size: 4rem;
@@ -247,7 +248,7 @@ TABLE OF CONTENTS
 
 //Wrapper
 .showcase-wrapper {
-    position: relative; 
+    position: relative;
 }
 
 //Mockup Wrap
@@ -835,18 +836,18 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 //Ipad Pro
-@media only screen 
-    and (min-device-width: 1024px) 
-    and (max-device-width: 1366px) 
+@media only screen
+    and (min-device-width: 1024px)
+    and (max-device-width: 1366px)
     and (-webkit-min-device-pixel-ratio: 1.5) {
 
 }
 
-//Ipad Pro Portrait 
-@media only screen 
-    and (min-device-width: 1024px) 
-    and (max-device-width: 1366px) 
-    and (orientation: portrait) 
+//Ipad Pro Portrait
+@media only screen
+    and (min-device-width: 1024px)
+    and (max-device-width: 1366px)
+    and (orientation: portrait)
     and (-webkit-min-device-pixel-ratio: 1.5) {
 
         .is-hero-title {
@@ -857,10 +858,10 @@ TABLE OF CONTENTS
 }
 
 //Ipad Pro Landscape
-@media only screen 
-    and (min-device-width: 1024px) 
-    and (max-device-width: 1366px) 
-    and (orientation: landscape) 
+@media only screen
+    and (min-device-width: 1024px)
+    and (max-device-width: 1366px)
+    and (orientation: landscape)
     and (-webkit-min-device-pixel-ratio: 1.5) {
 
 }
