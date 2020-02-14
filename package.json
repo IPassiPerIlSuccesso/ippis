@@ -1,7 +1,7 @@
 {
-    "name": "bulkit-components",
+    "name": "IPPIS",
     "version": "0.0.1",
-    "description": "Bulkit demos and components",
+    "description": "IPPIS site",
     "main": "Gruntfile.js",
     "devDependencies": {
         "autoprefixer": "^6.3.6",
@@ -18,25 +18,14 @@
         "popper.js": "^1.12.3",
         "rimraf": "^2.5.2"
     },
-    "engines": {
-        "node": ">=0.10.1"
-    },
     "scripts": {
         "start": "gulp",
         "build": "gulp build"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/cssninjaStudio/bulkit.git"
-    },
-    "bugs": {
-        "url": "https://github.com/cssninjaStudio/bulkit/issues",
-        "email": "support@cssninja.io"
-    },
-    "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io/themes/bulkit)",
+    "author": "IPPIS Team",
     "license": "Commercial",
     "private": true,
-    "engines" : { 
+    "engines" : {
     	"node" : "10.x"
     },
     "dependencies": {
