@@ -36,6 +36,9 @@
     "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io/themes/bulkit)",
     "license": "Commercial",
     "private": true,
+    "engines" : { 
+    	"node" : "10.x"
+    },
     "dependencies": {
         "@fengyuanchen/datepicker": "^0.6.5",
         "bulma": "^0.7.5",

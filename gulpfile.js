@@ -13,9 +13,11 @@ var port = process.env.SERVER_PORT || 8080;
 var nodepath = 'node_modules/';
 var assetspath = 'assets/';
 
+const BUILD_DIR = 'public'
+
 // Starts a BrowerSync instance
 gulp.task('server', ['build'], function () {
-    browser.init({ server: './_site', port: port });
+    browser.init({ server: `./${BUILD_DIR}`, port: port });
 });
 
 // Watch files for changes
@@ -40,7 +42,7 @@ gulp.task('reset', function () {
 
 // Erases the dist folder
 gulp.task('clean', function () {
-    rimraf('_site');
+    rimraf(BUILD_DIR);
 });
 
 // Copy Bulma filed into Bulma development folder
@@ -58,14 +60,14 @@ gulp.task('extendBulma', function () {
 
 // Copy static assets
 gulp.task('copy', function () {
-    gulp.src(['assets/css/icons.min.css']).pipe(gulp.dest('_site/assets/css/'));
+    gulp.src(['assets/css/icons.min.css']).pipe(gulp.dest(`${BUILD_DIR}/assets/css/`));
     //Copy other external font and data assets
-    gulp.src(['assets/fonts/**/*']).pipe(gulp.dest('_site/assets/fonts/'));
-    gulp.src([nodepath + 'datedropper/dd-icon/**/*']).pipe(gulp.dest('_site/assets/css/dd-icon/'));
-    gulp.src([nodepath + 'wickedpicker/fonts/**/*']).pipe(gulp.dest('_site/assets/fonts/'));
-    gulp.src([nodepath + 'slick-carousel/slick/fonts/**/*']).pipe(gulp.dest('_site/assets/css/fonts/'));
-    gulp.src([nodepath + 'slick-carousel/slick/ajax-loader.gif']).pipe(gulp.dest('_site/assets/css/'));
-    gulp.src(['assets/data/**/*']).pipe(gulp.dest('_site/assets/data/'));
+    gulp.src(['assets/fonts/**/*']).pipe(gulp.dest(`${BUILD_DIR}/assets/fonts/`));
+    gulp.src([nodepath + 'datedropper/dd-icon/**/*']).pipe(gulp.dest(`${BUILD_DIR}/assets/css/dd-icon/`));
+    gulp.src([nodepath + 'wickedpicker/fonts/**/*']).pipe(gulp.dest(`${BUILD_DIR}/assets/fonts/`));
+    gulp.src([nodepath + 'slick-carousel/slick/fonts/**/*']).pipe(gulp.dest(`${BUILD_DIR}/assets/css/fonts/`));
+    gulp.src([nodepath + 'slick-carousel/slick/ajax-loader.gif']).pipe(gulp.dest(`${BUILD_DIR}/assets/css/`));
+    gulp.src(['assets/data/**/*']).pipe(gulp.dest(`${BUILD_DIR}/assets/data/`));
 });
 
 //Theme Sass variables
@@ -106,7 +108,7 @@ gulp.task('compile-sass', function () {
         .pipe(sass(sassOptions).on('error', sass.logError))
         .pipe(postcss(processors))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./_site/assets/css/'));
+        .pipe(gulp.dest(`./${BUILD_DIR}/assets/css/`));
 });
 
 // Compile Theme Scss
@@ -133,7 +135,7 @@ gulp.task('compile-scss', function () {
         .pipe(sass(sassOptions).on('error', sass.logError))
         .pipe(postcss(processors))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./_site/assets/css/'));
+        .pipe(gulp.dest(`./${BUILD_DIR}/assets/css/`));
 });
 
 // Compile Html
@@ -146,7 +148,7 @@ gulp.task('compile-html', function () {
             helpers: 'html/helpers/',
             data: 'html/data/'
         }))
-        .pipe(gulp.dest('_site'))
+        .pipe(gulp.dest(BUILD_DIR))
         .on('finish', browser.reload);
 });
 
@@ -165,7 +167,7 @@ gulp.task('compile-css', function () {
         assetspath + 'css/chosen/chosen.css',
     ])
         .pipe(concat('app.css'))
-        .pipe(gulp.dest('./_site/assets/css/'));
+        .pipe(gulp.dest(`./${BUILD_DIR}/assets/css/`));
 });
 
 // Compile js from node modules
@@ -188,19 +190,19 @@ gulp.task('compile-js', function () {
         assetspath + 'js/current-device/current-device.js',
     ])
         .pipe(concat('app.js'))
-        .pipe(gulp.dest('./_site/assets/js/'));
+        .pipe(gulp.dest(`./${BUILD_DIR}/assets/js/`));
 });
 
 //Copy Theme js to production site
 gulp.task('copy-js', function () {
     gulp.src('js/**/*.js')
-        .pipe(gulp.dest('./_site/assets/js/'));
+        .pipe(gulp.dest(`./${BUILD_DIR}/assets/js/`));
 });
 
 //Copy images to production site
 gulp.task('copy-images', function () {
     gulp.src('images/**/*')
-        .pipe(gulp.dest('./_site/assets/images/'));
+        .pipe(gulp.dest(`./${BUILD_DIR}/assets/images/`));
 });
 
 gulp.task('init', ['setupBulma']);
