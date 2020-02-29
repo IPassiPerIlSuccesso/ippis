@@ -6,3 +6,5 @@ _site
 .sass-cache
 .now
 .idea
+
+public
